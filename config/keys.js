@@ -1,0 +1,1 @@
+export const MongoURL = "mongodb+srv://vivi:BJQ4nrx44coWYNaB@cluster0.3orcqlk.mongodb.net/?retryWrites=true&w=majority";

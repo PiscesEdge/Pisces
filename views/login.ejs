@@ -1,0 +1,25 @@
+<%- include ('partialss/header') %>
+
+    <div class="login-box">
+        <div class="container mt-3">
+            <h2>Login</h2>
+            <%- include ('./partialss/messages') %>
+                <form action="/users/login" method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Enter Email"
+                            value="<% typeof email !='undefined'? email: ''%>">
+                    </div>
+
+                    <div class="container mt-3">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="Enter Password"
+                            value="<% typeof password !='undefined'? password: ''%>">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                </form>
+        </div>
+    </div>
+
+    <%- include('partialss/footer %>

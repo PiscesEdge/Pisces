@@ -30,15 +30,16 @@ mongoose
         useNewUrlParser: true,
         useInifiedTopology: true,
     })
-    .them(() => {
+    .then(() => {
         console.log("Mongo DB connected.");
     })
     .catch((err) => console.log(err));
 
-//eng
+//eng setip
 app.set("views", path.joint(__dirname, "./views"));
 app.set("view engine", "ejs");
 
+//bdy parser
 app.use(express.urlencoded({ extended: false }));
 
 //middleware
@@ -46,16 +47,18 @@ app.use(
     session({
         secret: "secret",
         resave: true,
-        saveUninitialized: true.)};
+        saveUninitialized: true
+    }));
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(flash());
 
+//passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-//g var
+//-g variable flsh msg
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg");
     res.locals.error_msg = req.flash("error_msg");
@@ -66,11 +69,19 @@ app.use((req, res, next) => {
 //static
 app.use(express.static(path.joint(__dirname, "./public")));
 app.use(express.static(path.joint(__dirname, "./node_modules")));
+app.use(
+    "/dashboard/css",
+    express.static(path.resolve(__dirname, "assets/css"))
+);
+app.use("/dashboard", express.static(path.resolve(__dirname, "./public")));
+app.use("/users", express.static(path.resolve(__dirname, "./public")));
+app.use("/dashboard", express.static(path.resolve(__dirname, "./node_modules")));
+app.use("/users", express.static(path.resolve(__dirname, "./node_modules")));
 
 //rts
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
-// app.use("/dashboard", require("./routes/contact"));
+app.use("/dashboard", require("./routes/contact"));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

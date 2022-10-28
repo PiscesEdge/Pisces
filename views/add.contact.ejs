@@ -1,15 +1,21 @@
 <%- include('partialss/header') %>
 
-    <main>
-        <div>
-            <a href="">
-                <i>Contacts</i>
-            </a>
+    <!--site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav">
+                <div class="filter">
+                    <a href="/dashboard">
+                        <i class="fas fa-angle-double-left"></i> Contacts </a>
+                </div>
+            </div>
+            <div class="form-title text-center">
+                <h2 class="tetx-dark"> Create New contact</h2>
+                <span>Create new contact using the Form</span>
+            </div>
+            <!--the form-->
+            <%- include('partialss/_form') %>
         </div>
-        <div>
-            <h2>New contact</h2>
-            <span>Create new contact</span>
-        </div>
-        <%- include('partialss/_form') %>
     </main>
+
     <%- include('partialss/footer') %>

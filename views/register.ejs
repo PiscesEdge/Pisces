@@ -1,0 +1,33 @@
+<%- include ('partialss/header') %>
+
+    <div class="container mt-3">
+        <h2>Register</h2>
+        <%- include ('./partialss/messages') %>
+            <form action="/user/register" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" name="name" placeholder="Enter name"
+                        value="<%= typeof name !='undefined'? name:''%>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Enter email"
+                        value="<%= typeof email !='undefined'? email:''%>">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter password"
+                        value="<%= typeof password !='undefined'? password:''%>">
+                </div>
+                <div class="form-group">
+                    <label for="name">Confirm</label>
+                    <input type="password" name="password1" placeholder="Confirm password"
+                        value="<%= typeof name !='undefined'? name:''%>">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <p>Already a Member? <a href="/user/login">Login</a></p>
+    </div>
+
+    <%- include ('partialss/footer') %>
